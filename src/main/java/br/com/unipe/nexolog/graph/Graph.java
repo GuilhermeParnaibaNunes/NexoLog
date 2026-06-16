@@ -405,7 +405,7 @@ public class Graph {
                 .toList();
     }
 
-    private Vertex getOppositeVertex(Edge edge, Vertex vertex) {
+    public Vertex getOppositeVertex(Edge edge, Vertex vertex) {
         return edge.getSourceVertex().equals(vertex) ? edge.getTargetVertex() : edge.getSourceVertex();
     }
 

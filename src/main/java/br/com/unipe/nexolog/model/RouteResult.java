@@ -47,11 +47,11 @@ public class RouteResult {
     public String toString() {
         return """
                 {
-                Algorítimo: %s
+                Algoritimo: %s
                 Caminho: %s
                 Custo: %d
                 Vértices visitados: %d
-                Tempo de execução (ns): %d
+                Tempo de execução: %d (ns)
                 }
                 """
                 .formatted(
