@@ -409,6 +409,26 @@ public class Graph {
         return edge.getSourceVertex().equals(vertex) ? edge.getTargetVertex() : edge.getSourceVertex();
     }
 
+    public List<Edge> getOutgoingEdges(Vertex vertex){
+        return edges.stream()
+                .filter(edge -> edge.getSourceVertex().equals(vertex))
+                .toList();
+    }
+
+    public List<Edge> getIncidentEdges(Vertex vertex) {
+        return edges.stream()
+                .filter(edge -> edge.getSourceVertex().equals(vertex)
+                                    || edge.getTargetVertex().equals(vertex))
+                .toList();
+    }
+
+    public List<Vertex> getVertices() {
+        return Collections.unmodifiableList(vertices);
+    }
+
+    public List<Edge> getEdges() {
+        return Collections.unmodifiableList(edges);
+    }
 
     @Override
     public String toString() {

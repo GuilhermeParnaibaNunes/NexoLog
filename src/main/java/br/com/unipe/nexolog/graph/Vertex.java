@@ -1,6 +1,7 @@
 package br.com.unipe.nexolog.graph;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Vertex {
@@ -100,7 +101,7 @@ public class Vertex {
     }
 
     public List<Vertex> getOutAdjacency() {
-        return outAdjacency;
+        return Collections.unmodifiableList(outAdjacency);
     }
 
     //SETTERS
