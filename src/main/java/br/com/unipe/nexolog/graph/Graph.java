@@ -29,6 +29,11 @@ public class Graph {
         }
     }
 
+    public void addVertex(String name, int x, int y) {
+        vertices.add(new Vertex(name, x, y));
+        order++;
+    }
+
     public void addEdge(String v1, String v2) {
         edges.add(createEdge("", v1, v2, null));
     }

@@ -11,13 +11,11 @@ public final class WarehouseMapFactory {
     public static WarehouseMap createSmallWarehouse() {
         Graph graph = new Graph(false, true);
 
-        graph.addVertices(
-                "RECEBIMENTO",
-                "ARMAZENAMENTO_A",
-                "ARMAZENAMENTO_B",
-                "SEPARACAO",
-                "EXPEDICAO"
-        );
+        graph.addVertex("RECEBIMENTO", 0, 0);
+        graph.addVertex("ARMAZENAMENTO_A", 2, 1);
+        graph.addVertex("ARMAZENAMENTO_B", 2, -1);
+        graph.addVertex("SEPARACAO", 5, 0);
+        graph.addVertex("EXPEDICAO", 8, 0);
 
         graph.addEdge("R-A", "RECEBIMENTO", "ARMAZENAMENTO_A", 2);
         graph.addEdge("R-B", "RECEBIMENTO", "ARMAZENAMENTO_B", 4);
@@ -36,16 +34,14 @@ public final class WarehouseMapFactory {
     public static WarehouseMap createMediumWarehouse() {
         Graph graph = new Graph(false, true);
 
-        graph.addVertices(
-                "RECEBIMENTO",
-                "CORREDOR_A",
-                "CORREDOR_B",
-                "CORREDOR_C",
-                "ARMAZENAMENTO_A",
-                "ARMAZENAMENTO_B",
-                "EMBALAGEM",
-                "EXPEDICAO"
-        );
+        graph.addVertex("RECEBIMENTO", 0, 0);
+        graph.addVertex("CORREDOR_A", 2, 2);
+        graph.addVertex("CORREDOR_B", 2, -2);
+        graph.addVertex("CORREDOR_C", 4, 0);
+        graph.addVertex("ARMAZENAMENTO_A", 4, 4);
+        graph.addVertex("ARMAZENAMENTO_B", 4, -4);
+        graph.addVertex("EMBALAGEM", 7, 0);
+        graph.addVertex("EXPEDICAO", 10, 0);
 
         graph.addEdge("R-A", "RECEBIMENTO", "CORREDOR_A", 2);
         graph.addEdge("R-B", "RECEBIMENTO", "CORREDOR_B", 5);
@@ -73,25 +69,22 @@ public final class WarehouseMapFactory {
 
         Graph graph = new Graph(false, true);
 
-        graph.addVertices(
-                "RECEBIMENTO",
+        graph.addVertex("RECEBIMENTO", 0, 0);
 
-                "CORREDOR_A",
-                "CORREDOR_B",
-                "CORREDOR_C",
-                "CORREDOR_D",
+        graph.addVertex("CORREDOR_A", 2, 3);
+        graph.addVertex("CORREDOR_B", 2, -3);
+        graph.addVertex("CORREDOR_C", 4, 3);
+        graph.addVertex("CORREDOR_D", 4, -3);
 
-                "ARMAZENAMENTO_A",
-                "ARMAZENAMENTO_B",
-                "ARMAZENAMENTO_C",
+        graph.addVertex("ARMAZENAMENTO_A", 4, 6);
+        graph.addVertex("ARMAZENAMENTO_B", 4, -6);
+        graph.addVertex("ARMAZENAMENTO_C", 6, 6);
 
-                "SEPARACAO_A",
-                "SEPARACAO_B",
+        graph.addVertex("SEPARACAO_A", 8, 3);
+        graph.addVertex("SEPARACAO_B", 8, -3);
 
-                "EMBALAGEM",
-
-                "EXPEDICAO"
-        );
+        graph.addVertex("EMBALAGEM", 11, 0);
+        graph.addVertex("EXPEDICAO", 14, 0);
 
         graph.addEdge("R-A", "RECEBIMENTO", "CORREDOR_A", 2);
         graph.addEdge("R-B", "RECEBIMENTO", "CORREDOR_B", 5);

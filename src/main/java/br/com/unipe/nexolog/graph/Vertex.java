@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Vertex {
     private final String name;
+    private final int x;
+    private final int y;
 
     private int degree;
     private int inDegree; //Must be 0 for undirected
@@ -14,8 +16,18 @@ public class Vertex {
     private final List<Vertex> inAdjacency;
     private final List<Vertex> outAdjacency;
 
+    public Vertex (String name, int x, int y) {
+        this.name = name;
+        this.x = x;
+        this.y = y;
+        outAdjacency = new ArrayList<>();
+        inAdjacency = new ArrayList<>();
+    }
+
     public Vertex (String name) {
         this.name = name;
+        this.x = 0;
+        this.y = 0;
         outAdjacency = new ArrayList<>();
         inAdjacency = new ArrayList<>();
     }
@@ -83,6 +95,10 @@ public class Vertex {
     public String getName() {
         return name;
     }
+
+    public int getX() { return x; }
+
+    public int getY() { return y; }
 
     public int getDegree() {
         return degree;
