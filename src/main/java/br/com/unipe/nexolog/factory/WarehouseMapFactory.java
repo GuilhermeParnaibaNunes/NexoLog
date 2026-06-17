@@ -120,6 +120,9 @@ public final class WarehouseMapFactory {
     public static WarehouseMap createMegaWarehouse() {
         Graph graph = new Graph(false, true);
 
+        graph.addVertex("RECEBIMENTO", 0, 0);
+        graph.addVertex("EXPEDICAO", 30, 0);
+
         // Zonas de Recebimento e Triagem
         graph.addVertex("DOCA_NORTE", 0, 10);
         graph.addVertex("DOCA_SUL", 0, -10);
@@ -153,6 +156,7 @@ public final class WarehouseMapFactory {
         graph.addVertex("EXPEDICAO_PRINCIPAL", 30, 0);
         graph.addVertex("EXPEDICAO_EXPRESSA", 30, 8);
 
+        graph.addEdge("REC-DOC_N", "RECEBIMENTO", "DOCA_NORTE", 0);
         // --- CONEXÕES (ARESTAS) ---
         graph.addEdge("DN-TR", "DOCA_NORTE", "TRIAGEM", 6);
         graph.addEdge("DS-TR", "DOCA_SUL", "TRIAGEM", 6);
@@ -194,6 +198,8 @@ public final class WarehouseMapFactory {
         graph.addEdge("EMBB-EXP", "EMBALAGEM_B", "EXPEDICAO_PRINCIPAL", 5);
         graph.addEdge("EMBA-EXEX", "EMBALAGEM_A", "EXPEDICAO_EXPRESSA", 4);
 
+        graph.addEdge("EXP_P-EXP", "EXPEDICAO_PRINCIPAL", "EXPEDICAO", 0);
+
         return new WarehouseMap(
                 "Centro de Distribuição Mega (Múltiplos Setores)",
                 graph
@@ -204,7 +210,7 @@ public final class WarehouseMapFactory {
         Graph graph = new Graph(false, true);
 
         graph.addVertex("RECEBIMENTO", 0, 0);
-        graph.addVertex("EXPEDICAO", 30, 0);
+        graph.addVertex("EXPEDICAO", 30, 30);
 
         String[][] grade = new String[3][4];
         for (int i = 0; i < 3; i++) {
